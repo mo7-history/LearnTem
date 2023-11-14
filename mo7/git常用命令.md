@@ -13,6 +13,8 @@ git config --global user.name 墨七 && git config --global user.email mo7@mo7.c
 
 ```
 
+https://github.com/mo7Code/LearnTem/blob/main/mo7/git常用命令.md
+
 # git 常用命令和设置安装
 
 ## git 设置
