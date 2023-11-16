@@ -29,7 +29,7 @@ echo "chichichi pofangle" > test2.txt
 
 
 在.bashrc下设置代理
-WindowsIP=$(cat /etc/resolv.conf | grep 'nameserver')
+WindowsIP=$(cat /etc/resolv.conf | grep -oP '(?<=nameserver\ ).*')
 export ALL_PROXY="http://${WindowsIP}:7890"
 
 
