@@ -57,4 +57,4 @@
 #### 图片语法 
 使用！后在方括号里添加文本 圆括号里放链接以及可增加的图片标题文本   也可以给图片增加链接
 ![这是一个图片](/fpz-mo7/LearnTem/fpz/photo/xinhaicheng.jpg "新海诚")  
-![这是一个图片](/fpz-mo7/LearnTem/fpz/photo/xinhaicheng.jpg "新海诚")（https://baidu.com）
+![这是一个图片](/fpz-mo7/LearnTem/fpz/photo/xinhaicheng.jpg "新海诚")(https://baidu.com)
