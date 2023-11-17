@@ -45,16 +45,17 @@
 单独一行上使用三个或多个*、-、_ 
 
 #### 链接语法
-这是一个链接 [我的github](https://github.com:fpzds "覆盆子")  
+这是一个链接 [我的github](https://github.com:fpzds/ "覆盆子")  
 
 使用尖括号可以变成可点击的链接  
 <https://www.baidu.com>  
 
 带格式化的链接 强调链接，在链接前后添加星号  
-这是一个链接 **[我的github](https://github.com:fpzds "覆盆子")**  
+这是一个链接 **[我的github](https://github.com:fpzds/ "覆盆子")**  
 
 
 #### 图片语法 
 使用！后在方括号里添加文本 圆括号里放链接以及可增加的图片标题文本   也可以给图片增加链接
-![这是一个图片](/LearnTem/fpz/photo/xinhaicheng.jpg "新海诚")  
-![这是一个图片](/LearnTem/fpz/photo/xinhaicheng.jpg "新海诚")(https://baidu.com)
+![这是一个图片](./photo/xinhaicheng.jpg "新海诚")  
+
+![这是一个图片](./photo/xinhaicheng.jpg "新海诚")(https://baidu.com)
