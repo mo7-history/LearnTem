@@ -41,6 +41,8 @@
 将其包裹在反引号中  
 `chifan 吃饭 aligaduo`
 
+#### 分割线
+单独一行上使用三个或多个*、-、_ 
 
-
-
+#### 链接语法
+这是一个链接 [我的github](htttps://github.com:fpzds "覆盆子")
