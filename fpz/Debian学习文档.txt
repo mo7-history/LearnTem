@@ -2,17 +2,17 @@
 
 cd ~         返回用户主目录
 pwd          打印当前所在目录的绝对路径
-su - 用户名  切换用户命令
+su - 用户名  切换用户命令  不常用
 cat  /       打开文件，vim也可以   cat /etc/issue  查看操作系统版本
 code /       用vscode打开该文件
-ls           显示文件   ls -al 显示所有文件
+ls           列出文件   ls -al 列出所有文件
 
 mkdir        创建目录
 touch        创建文件
 rm           删除文件  -f 强制删除   -i 提示用户删除
                        -r 递归删除目录及内容 -rf 递归强制删除
       
-chmod        添加权限   chmod 777 文件
+chmod        修改权限   chmod 777 文件
 screenfetch  查看系统信息
    
 
