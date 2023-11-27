@@ -36,6 +36,7 @@ drwxr-xr-x 8 duran duran 4096 Nov 20 20:22 LearnTem
 ## 文件属主和属组
 
 ![my picture](../图片/Linux图片/文件管理2.png)
+0
 LearnTem是目录文件，属主和属组都为duran，属主权限为读、写、执行，属组权限读、执行，其他用户权限读、执行。
 
 ## 更改文件属性
