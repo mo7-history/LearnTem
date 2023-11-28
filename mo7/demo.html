@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OtterTrade</title>
   <link rel="stylesheet" href="./demo.css">
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 </head>
 
@@ -80,9 +80,18 @@
       data[inputElm.name] = inputElm.value
     }
 
-    console.log(data);
+    axios({
+      method: 'post',
+      url: 'http://localhost:9456/testPostJson',
+      data: {
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+      }
+    });
+
   }
   // 将其提交给服务端进行存储
+
 
 
 </script>
