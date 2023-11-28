@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"text/template"
 )
@@ -32,35 +31,25 @@ func handleGet(writer http.ResponseWriter, request *http.Request) {
 
 // 处理application/json类型的POST请求
 func handlePostJson(writer http.ResponseWriter, request *http.Request) {
-	// 根据请求body创建一个json解析器实例
-	// decoder := json.NewDecoder(request.Body)
-	b, err := ioutil.ReadAll(request.Body)
-	fmt.Println("接收到的参数", b, err)
+	writer.Header().Set("Access-Control-Allow-Origin", "*")             // 允许访问所有域
+	writer.Header().Add("Access-Control-Allow-Headers", "Content-Type") // header的类型
+	writer.Header().Set("content-type", "application/json")             // 返回数据格式是json
 
-	// 用于存放参数key=value数据
-	// var params map[string]string
+	str, _ := ioutil.ReadAll(request.Body) // 把	body 内容读入字符串 s
+	fmt.Println(string(str))               // 在返回页面中显示内容。
 
-	// 解析参数 存入map
-	// decoder.Decode(&params)
-
-	// fmt.Printf("POST json: username=%s, password=%s\n", params["username"], params["password"])
-
-	// fmt.Fprintf(writer, `{"code":0}`)
+	fmt.Fprintf(writer, string(str))
 }
 
 func main() {
-	http.HandleFunc("/", handleIndex)
-
-	port := ":9456"
-
-	fmt.Println("Running at port " + port)
-
 	http.HandleFunc("/testGet", handleGet)
 
 	http.HandleFunc("/testPostJson", handlePostJson)
 
+	port := ":9456"
+	fmt.Println("Running at port " + port)
 	err := http.ListenAndServe(port, nil)
 	if err != nil {
-		log.Fatal("ListenAndServe: ", err.Error())
+		fmt.Println("ListenAndServe", err.Error())
 	}
 }
