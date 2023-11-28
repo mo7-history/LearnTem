@@ -27,6 +27,7 @@ func handleGet(writer http.ResponseWriter, request *http.Request) {
 	fmt.Printf("GET: id=%s\n", id)
 
 	fmt.Fprintf(writer, `{"code":0}`+id+"}")
+	fmt.Fprintf(writer, "<div>go-toolkit</div>")
 }
 
 // 处理application/json类型的POST请求
