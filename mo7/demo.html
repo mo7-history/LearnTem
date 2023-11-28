@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OtterTrade</title>
+  <link rel="stylesheet" href="./demo.css">
+
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div class="leftCom">
+      <div class="leftCom-top">
+        顶部的
+      </div>
+      <div class="leftCom-center">
+        中间的
+      </div>
+    </div>
+
+    <div class="rightCom">
+      <div class="rightCom-center">
+
+        <div class="item">
+          注册 OtterTrade
+        </div>
+        <div class="item">
+          注册邮箱
+          <input name="email" type="text">
+        </div>
+
+        <div class="item">
+          注册验证码
+          <input name="code" type="text">
+        </div>
+
+
+        <div class="item">
+          注册密码
+          <input name="password" type="password">
+        </div>
+
+        <div class="item">
+
+          <button id="submit">
+            注册按钮
+          </button>
+        </div>
+
+        <div class="item">
+          已有账号？登录
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>
+
+
+<script>
+
+  const submitBtn = document.getElementById("submit")
+  submitBtn.onclick = function () {
+    const inputElms = document.getElementsByTagName("input")
+    const data = {}
+
+    for (let i = 0; i < inputElms.length; i++) {
+      const inputElm = inputElms[i];
+      data[inputElm.name] = inputElm.value
+    }
+
+    console.log(data);
+  }
+  // 将其提交给服务端进行存储
+
+
+</script>

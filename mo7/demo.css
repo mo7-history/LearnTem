@@ -1,0 +1,53 @@
+/* 
+想要左右排列： float  flex
+*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.leftCom {
+  width: 60vw;
+  background-color: #ffcd05;
+}
+
+.rightCom {
+  width: 40vw;
+  background-color: aqua;
+}
+
+/* leftCom */
+.leftCom {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.leftCom-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+/* rightCom */
+.rightCom {
+  display: flex;
+  align-items: center;
+}
+
+.rightCom-center .item {
+  margin-bottom: 20px;
+}
+
+.rightCom-center .item input {
+  display: block;
+}
