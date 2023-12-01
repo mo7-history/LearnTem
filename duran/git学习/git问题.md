@@ -4,7 +4,7 @@
 
 1. 报错信息
 
-```
+```git
 ! [rejected]        main -> main (fetch first)
 error: failed to push some refs to 'https://github.com/mo7Code/LearnTem/'
 hint: Updates were rejected because the remote contains work that you do
@@ -20,8 +20,56 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 3. 解决方案
 
-将远程仓库修改的内容更新到本地仓库：`git pull --rebase origin master`
+将远程仓库修改的内容更新到本地仓库：`git pull --rebase origin main`
 
-再次进行提交`git push origin master`
+再次进行提交`git push origin main`
 
-若远程仓库上已经更新的地方与当前提交的修改的地方一致，那么此时本地仓库上的修改可能会被覆盖。这样可以使用`git fetch origin master`(不会自动合并)，然后查看更新情况再进行有选择的合并。或者将本地仓库修改过的内容备份，`git pull origin master`后在重新修改
+若远程仓库上已经更新的地方与当前提交的修改的地方一致，那么此时本地仓库上的修改可能会被覆盖。这样可以使用`git fetch origin main`(不会自动合并)，然后查看更新情况再进行有选择的合并。或者将本地仓库修改过的内容备份，`git pull origin main`后在重新修改
+
+## git pull 相关错误
+
+### 问题背景
+
+git 版本为2.27.0 以上时，使用`git pull`会出现以下警告：
+
+```git
+hint: Pulling without specifying how to reconcile divergent branches is
+hint: discouraged. You can squelch this message by running one of the following
+hint: commands sometime before your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge (the default strategy)
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+```
+
+```git
+提示：不鼓励在未说明如何调和不同分支的情况下进行拉动
+提示：您可以通过运行以下命令之一来消除此消息
+提示：在下次拉取之前的某个时间发出命令：
+暗示：
+提示： git config pull.rebase false # 合并（默认策略）
+提示： git config pull.rebase true # rebase
+提示： git config pull.ff only # 仅快进
+提示：
+提示：您可以将“git config”替换为“git config --global”以设置默认值
+提示：所有存储库的首选项。 您还可以传递 --rebase, --no-rebase,
+提示：或在命令行上使用 --ff-only 来覆盖配置的默认值
+提示：调用。
+```
+
+### 解决办法
+
+`git pull origin main`或者`git branch --set-upstream-to <branch-name> origin/<branch-name>`建立联系后，在`git pull`
+此命令等同于
+
+```git
+git fetch origin <本地分支>
+git diff  <本地分支>  #比较本地分支的不同
+git merge <本地分支>   #合并本地分支
+git branch -d <本地分支>  #删除本地分支
+```
