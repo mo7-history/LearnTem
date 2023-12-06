@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*为了消除浏览器原有的样式*/
+
+.wrapper{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.left-wrapper{
+    background-color: #ffcd05;
+    width: 60vw;
+}
+
+.right-wrapper{
+    background-color: aqua;
+    width: 40vw;
+}
+
+/* left-wrapper */
+.left-wrapper{
+    position: relative;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.left-top{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*right-wrapper*/
+.right-wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.right-wrapper-center .right-wrapper-item{
+    margin-bottom: 20px;
+}
+
+.right-wrapper-center .right-wrapper-item input{
+    display: block;
+}

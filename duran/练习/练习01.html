@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./练习CSS.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <div class="left-wrapper">
+            <div class="left-top">
+                顶部的
+            </div>
+            <div class="left-bottom">
+                中部的
+            </div>
+        </div>
+
+        <div class="right-wrapper">
+
+            <div class="right-wrapper-center">
+                <div class="right-wrapper-item">
+                    注册 OtterTrade
+                </div>
+                <div class="right-wrapper-item">
+                    账号
+                    <input name="email" placeholder="请输邮箱地址">
+                </div>
+                <div class="right-wrapper-item">
+                    密码
+                    <input name="password" placeholder="请输入密码" type="password">
+                </div>
+                <div class="right-wrapper-item">
+                    验证码
+                    <input name="verification code" placeholder="请输入验证码">
+                </div>
+                <div class="right-wrapper-item" >
+                    <button id="submit">
+                        登录OtterTrade
+                    </button>
+                </div>
+                <div class="right-wrapper-item" >
+                    <a name="up" href="url">注册新账号</a>
+                </div>
+            </div>
+
+        </div>
+        
+    
+    </div>
+</body>
+</html>
+<script>
+    /* const submitBtn = document.getElementById("submit")
+    submitBtn.onclick=function(){
+        alert("你已经成功注册")
+    } */
+    //const submitBtn = document.getElementById("submit")
+    /* submitBtn.onclick=function(){
+        const inputElm = document.getElementsByTagName("input")
+        console.log(inputElm[0].name)
+        for(let i = 0; i < inputElm.length; i++){
+            const inputElms = inputElm[i];
+            console.log("value",inputElms.value)
+            console.log("name",inputElms.name)
+        } //打印注册的账号邮箱地址、密码、验证码
+    } */
+
+    const submitBtn = document.getElementById("submit")
+    submitBtn.onclick=function(){
+        const inputElm = document.getElementsByTagName("input")
+        const date={}
+
+        for(let i = 0; i < inputElm.length; i++){
+            const inputElms = inputElm[i];
+            date[inputElms.name] = inputElms.value
+        } 
+        console.log(date)
+    }
+</script>
