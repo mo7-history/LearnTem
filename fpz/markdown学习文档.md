@@ -41,6 +41,28 @@
 将其包裹在反引号中  
 `chifan 吃饭 aligaduo`
 
+代码块通过两行 ``````` 符号框出，如需标注语言类型可在第一个```后标注
+``` C
+#include <stdio.h>
+#include <thread>
+
+int main(void) {
+	printf("Hello world!\n");
+
+	int i =12, j = 0;
+
+	//__debugbreak();
+
+	std::thread tr(main);
+
+//	printf("i = %d , j = %d\n", i, j);
+	printf("i/j = %d\n", i/j);
+		return 0;
+}
+
+```
+
+
 #### 分隔线
 单独一行上使用三个或多个*、-、_ 
 

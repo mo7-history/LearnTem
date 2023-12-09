@@ -36,5 +36,3 @@ export ALL_PROXY="http://${WindowsIP}:7890"
 
 
 
-
-
