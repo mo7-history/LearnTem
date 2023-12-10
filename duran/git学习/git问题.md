@@ -73,3 +73,13 @@ git diff  <本地分支>  #比较本地分支的不同
 git merge <本地分支>   #合并本地分支
 git branch -d <本地分支>  #删除本地分支
 ```
+
+## 远程更新，本地也更新了
+
+解决办法：
+
+1. 输入`git status`查看本地修改
+2. 输入`git stash` 隐藏本地修改
+3. 输入`git pull`从远程拉取更新
+4. 输入`git stash pop stash@{版本号}`
+5. 然后再暂存，提交。
