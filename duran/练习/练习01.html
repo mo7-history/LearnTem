@@ -68,6 +68,18 @@
         } //打印注册的账号邮箱地址、密码、验证码
     } */
 
+/*     const submitBtn = document.getElementById("submit")
+    submitBtn.onclick=function(){
+        const inputElm = document.getElementsByTagName("input")
+        const date={}
+
+        for(let i = 0; i < inputElm.length; i++){
+            const inputElms = inputElm[i];
+            date[inputElms.name] = inputElms.value//进行赋值操作
+        } 
+        console.log(date)
+    } */
+
     const submitBtn = document.getElementById("submit")
     submitBtn.onclick=function(){
         const inputElm = document.getElementsByTagName("input")
@@ -75,8 +87,10 @@
 
         for(let i = 0; i < inputElm.length; i++){
             const inputElms = inputElm[i];
-            date[inputElms.name] = inputElms.value
+            date[inputElms.name] = inputElms.value//进行赋值操作
         } 
         console.log(date)
-    }
+    } 
+    //服务端设置
+    
 </script>
