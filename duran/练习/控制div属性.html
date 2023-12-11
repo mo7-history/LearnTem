@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            margin:20px auto;
+            padding: 0;text-align: center;
+            width: 500px;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            display: block;
+            margin:10px auto;
+        }
+        input{
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <input type="button" value="变宽">
+        <input type="button" value="变高">
+        <input type="button" value="变色">
+        <input type="button" value="隐藏">
+        <input type="button" value="重置">
+        <div id="box"></div>
+    </div>
+</body>
+<script>
+    var changeStyle = function(elem,sty,value){
+        elem.style[sty] = value;
+    }
+    window.onload = function(){
+        var btn = document.getElementsByTagName("input");
+        var iBox = document.getElementById("box");
+        var oAttr = ['width','height','background-color','display','display'];
+        var oVal = ['200px','200px','red','none','block'];
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].index = i;//为btn中每个元素添加一个index属性，并赋值为i，是动态变化的
+            btn[i].onclick = function(){
+                changeStyle(iBox,oAttr[this.index],oVal[this.index]);//this.index是btn数组中的索引，this的指向是i
+            }
+            
+        }
+    }
+
+</script>
+</html>
