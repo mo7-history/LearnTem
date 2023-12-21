@@ -4,6 +4,41 @@
 
 通过对盒子`display`属性的设置，例如`block`、`inline`来控制盒子的外部显示类型
 
+### 盒子中的区域
+
+一个盒子中主要的属性就5个：width、height、padding、border、margin。如下：
+
+width和height：内容的宽度、高度（不是盒子的宽度、高度）。
+
+padding：内边距。
+
+border：边框。
+
+margin：外边距。
+
+### 标准盒模型和IE盒模型
+
+标准盒模型
+![picture](./../../图片/HTML/CSS图片/布局1.png)
+IE盒子模型
+![picture](./../../图片/HTML/CSS图片/布局2.png)
+上图显示：
+
+在 CSS 盒子模型 (Box Model) 规定了元素处理元素的几种方式：
+
+- width和height：**内容**的宽度、高度（不是盒子的宽度、高度）。
+- padding：内边距。
+- border：边框。
+- margin：外边距。
+
+CSS盒模型和IE盒模型的区别：
+
+- 在 **标准盒子模型**中，**width 和 height 指的是内容区域**的宽度和高度。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。
+
+- **IE盒子模型**中，**width 和 height 指的是内容区域+border+padding**的宽度和高度。
+
+  **目前所学习的只是以标准盒模型为准，IE盒模型扩展性了解**
+
 ### 内部和外部显示类型
 
 box模型有一个外部显示类型，来决定盒子是块级还是内联。

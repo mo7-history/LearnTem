@@ -1,24 +1,36 @@
 # 弹性盒子
 
-为了解决以下布局需求
+默认文档流中，在一个父容器里放置多个块级的子元素，那么，这些子元素会默认从上往下排列。
 
-- 在父内容里面垂直居中一个块内容。
-- 使容器的所有子项占用等量的可用宽度/高度，而不管有多少宽度/高度可用。
-- 使多列布局中的所有列采用相同的高度，即使它们包含的内容量不同。
+在此基础之上，如果我给父容器仅仅加一个 `display: flex`属性，此时，这些子元素们会**在水平方向上，从左至右排列**。
 
-## 说明
+## flex 布局的优势
+
+1、**flex 布局的子元素不会脱离文档流**，很好地遵从了“流的特性”。
+
+但你如果用 float 来做布局，float 属性的元素会脱离文档流，而且会涉及到各种 BFC、清除浮动的问题。浮动相关的问题，比较麻烦，所以也成了面试必问的经典题目。但有了 flex 布局之后，这些问题都不存在的。
+
+2、**flex 是一种现代的布局方式，是 W3C 第一次提供真正用于布局的 CSS 规范**。 flex 非常提供了丰富的属性，非常灵活，让布局的实现更佳多样化，且方便易用。
+
+flex 唯一的缺点就在于，它不支持低版本的 IE 浏览器（flex 布局不支持 IE9 及以下的版本；IE10及以上也只是部分支持）
+
+## 主轴和交叉轴
 
 当元素变现为flex框时，沿着两个轴来布局：
 ![picture](./../../图片/HTML/CSS图片/弹性盒子.png)
 
-- 主轴（main axis）是沿着 flex 元素放置的方向延伸的轴（比如页面上的横向的行、纵向的列）。该轴的开始和结束被称为 main start 和 main end。
-- 交叉轴（cross axis）是垂直于 flex 元素放置方向的轴。该轴的开始和结束被称为 cross start 和 cross end。
+- 主轴（main axis）是沿着 flex 元素放置的方向延伸的轴（比如页面上的横向的行、纵向的列）。该轴的开始和结束被称为 main start 和 main end。flex容器的主轴，默认是水平方向，从左向右。
+- 交叉轴（cross axis）是垂直于 flex 元素放置方向的轴。该轴的开始和结束被称为 cross start 和 cross end。默认是垂直方向，从上往下。
 - 设置了 display: flex 的父元素被称之为 flex 容器（flex container）。
 - 在 flex 容器中表现为弹性的盒子的元素被称之为 flex 项（flex item）.
 
-## 属性
+## 声明
 
-### flex
+使用 `display:flex` 或 `display:inline-flex` 声明一个**父容器**为弹性盒子。此时，这个父容器里的子元素们，会遵循弹性布局。
+
+备注：一般是用 `display:flex`这个属性。`display:inline-flex`用得较少。
+
+## 属性
 
 ### flex-direction
 
@@ -32,7 +44,9 @@
 
 ### flex-wrap
 
+控制子元素溢出时的换行处理
 用于指定弹性盒子的子元素换行方式。
+
 值：
 
 - nowrap - 默认， 弹性容器为单行。该情况下弹性子项可能会溢出容器。
@@ -50,6 +64,15 @@ flex-wrap: wrap;
 flex-flow: row wrap;
 ```
 
+### justify-content
+
+- `justify-content: flex-start;` 设置子元素在**主轴上的对齐方式**。属性值可以是：
+  - `flex-start` 从主轴的起点对齐（默认值）
+  - `flex-end` 从主轴的终点对齐
+  - `center` 居中对齐
+  - `space-around` 在父盒子里平分
+  - `space-between` 两端对齐 平分
+
 ### align-content
 
 用于修改 flex-wrap 属性的行为。类似于 align-items, 但它不是设置弹性子元素的对齐，而是设置各个行的对齐。
@@ -61,8 +84,7 @@ flex-flow: row wrap;
 - space-between -各行在弹性盒容器中平均分布。
 - space-around - 各行在弹性盒容器中平均分布，两端保留子元素与子元素之间间距大小的一半。
 
-### 水平和垂直对齐
-
+**水平和垂直对齐**
 使用弹性盒子的功能让 flex 项沿主轴或交叉轴对齐
 
 ```css
@@ -113,6 +135,7 @@ align-self 属性不适用于块类型的盒模型和表格单元。如果任何
 
 ### flex属性
 
+flex 是 flex-grow、flex-shrink 、flex-basis 缩写组合。
 属性用于指定弹性子元素如何分配空间。
 
 - auto: 计算值为 1 1 auto
@@ -122,3 +145,23 @@ align-self 属性不适用于块类型的盒模型和表格单元。如果任何
 - [ flex-grow ]：定义弹性盒子元素的扩展比率。
 - [ flex-shrink ]：定义弹性盒子元素的收缩比率。
 - [ flex-basis ]：定义弹性盒子元素的默认基准值。
+
+### flex-grow
+
+用于将弹性盒子的可用空间，分配给弹性元素。可以使用整数或小数声明。
+
+### flex-shrink
+
+与 flex-grow 相反 flex-shrink 是在弹性盒子装不下元素时定义的缩小值。
+缩小比例 = 不足的空间 / (元素 1 宽度 x 缩小比例) + (元素 2 宽度 x 缩小比例) ...
+最终尺寸 = 元素三宽度 - (缩小比例 x  元素 3 的宽度) X 元素宽度
+
+### flex-basis
+
+flex-basis 属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。
+
+可以是长度单位，也可以是百分比。flex-basis的优先级高于width、height属性。
+
+优先级
+
+flex-basis 优先级大于 width、height

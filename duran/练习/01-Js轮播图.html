@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var banner = 1;
+        showBanner(banner);
+        function plusBanner(n){
+            showBanner(banner += n);
+        }
+        function currentBanner(n){
+            showBanner(banner = n);
+        }
+        function showBanner(n){
+            var i;
+            var list = document.getElementsByClassName('common');
+            var btn = document.getElementsByClassName('btn');
+            if (n > list.length){
+                banner = 1;
+            }
+            if (n < 1){
+                banner = list.length;
+            }
+            for (i = 0; i < list.length; i++){
+                list[i].style.display = "none";
+            }
+            for (i = 0; i < btn.length; i++){
+                btn[i].className = btn[i].className.replace('active','');
+            }
+            list[banner - 1].style.display = "block";
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 270px;
+            height: 270px;
+            /* 设置容器居中 */
+            margin: 0 auto;
+            /* background-color: brown; */
+            box-sizing: border-box;
+            background-color: #f60a0a;
+        }
+        /* 设置容器的样式 */
+        .banner{
+            display: block;
+            height: 250px;
+            background-color: rgb(7, 235, 42);
+            position: relative;
+            
+        }
+        /* 设置图片的样式 */
+        .common{
+            background-color: rgb(93, 42, 165);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding-top:10px;
+            text-align: center;
+        }
+        .para{
+            position: absolute;
+        }
+        /* 设置按钮的通用位置 */
+        .prev,.next{
+            position: absolute;
+            top: 50%;
+            /* 设置鼠标移入样式 */
+            cursor: pointer;
+            /* width: 15px;
+            height: 25px; */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.6s ease;
+            border-radius: 0 4px 4px 0;
+        }
+        /* 设置右按钮的位置 */
+        .next{
+            right: 0;
+        }
+        /* 设置鼠标移入样式 */
+        .prev:hover,.next:hover{
+            background-color: rgb(0,0,0,0.8);
+        }
+        .bot{
+            text-align: center;
+        }
+        .btn{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(236, 236, 12);
+            cursor: pointer;
+        }
+        .active,.btn:hover{
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <!-- 创建一个外部的div，作为大的容器 -->
+    <div class="container">
+        <!-- 创建一个div，放图片 -->
+        <div class="banner">
+            <div class="common">
+                <div class="para">1/3</div>
+                <img src="../图片/练习图片/图片一.jpg" alt="图片一">
+            </div>
+            <div class="common">
+                <div class="para">2/3</div>
+                <img src="../图片/练习图片/图片二.jpg" alt="图片二">
+            </div>
+            <div class="common">
+                <div class="para">3/3</div>
+                <img src="../图片/练习图片/图片三.jpg" alt="图片三">
+            </div>
+            <a class="prev" onclick="plusBanner(-1)">❮</a>
+            <a class="next" onclick="plusBanner(1)">❯</a>
+        </div>
+        <!-- 创建一个div，作为按钮 -->
+        <div class="bot">
+            <span class="btn" onclick="currentBanner(1)"></span>
+            <span class="btn" onclick="currentBanner(2)"></span>
+            <span class="btn" onclick="currentBanner(3)"></span>
+        </div>
+    </div>
+</body>
+</html>
