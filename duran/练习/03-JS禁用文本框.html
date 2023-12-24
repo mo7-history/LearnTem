@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禁用文本框</title>
+    <style>
+        .text{
+            background: rgb(239, 239, 239, 0.3);
+            border-color: rgb(118, 118, 118, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>禁用按钮</button>
+        <input type="text" value="文本框" class="text" />
+        <!-- input元素需要闭合，不然有些解释器不认，导致报错。 -->
+        <button>禁用按钮</button>
+        <input type="email" value="邮箱" class="text" />
+        <button>禁用按钮</button>
+        <input type="password" value="密码" class="text" />
+    </div>
+</body>
+<script>
+    /* 获取按钮 */
+    var btn = document.getElementsByTagName("button");
+
+    /* 获取文本框 */
+    var text = document.getElementsByClassName("text");
+    /* 注意getElementsByTagName 和 getElementsByClassName 返回的是一个集合 */
+
+    /* 设置点击事件 */
+    for (let i = 0; i < btn.length; i++) {
+        btn[i].onclick = function(){
+            /* 设置文本框禁用属性 */
+            text[i].disabled = 'true';
+            alert("禁用成功");
+        }
+    }
+    /* 以下代码使用与单独一个禁用文本框 */
+    /* var btn = document.getElementsByTagName("button")[0];
+    var text = document.getElementsByClassName("text")[0];
+    btn.onclick = function(){
+        text.disabled = 'true';
+    } */
+</script>
+</html>

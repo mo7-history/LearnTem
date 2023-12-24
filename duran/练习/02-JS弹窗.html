@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹窗</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 设置弹窗样式 */
+        .container{
+            display: none;/* //默认隐藏 */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0,0.2);
+        }
+        .content{
+            background-color: #fefefe;
+        }
+        /* 设置弹窗内容的内边距 */
+        .content-top,.content-bottom,.content-body{
+            padding: 2px 16px;
+        }
+        /* 弹窗样式设置 */
+        .content-top,.content-bottom{
+            background-color: rgb(74, 243, 74);
+            color: aliceblue;
+        }
+        /* 设置关闭按钮的样式 */
+        .close{
+            float: right;
+            color: white;
+            font-weight: bold;
+        }
+        /* 设置关闭按钮的鼠标悬停效果 */
+        .close:hover,.close:focus {
+            cursor: pointer;
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 弹窗按钮 -->
+    <input type="button" value="弹窗" id="btn">
+    <!-- 设置弹窗 -->
+    <div class="container" id="modal">
+        <!-- 设置弹窗内容 -->
+        <div class="content">
+            <!-- 设置弹窗头部 -->
+            <div class="content-top">
+                <span class="close">X</span>
+                <h3>弹窗头部</h3>
+            </div>
+            <!-- 设置弹窗内容 -->
+            <div class="content-body">
+                <p>弹窗内容.......</p>
+                <p>弹窗内容.......</p>
+            </div>
+            <!-- 设置弹窗底部 -->
+            <div class="content-bottom">
+                <h3>弹窗底部</h3>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+        /* 获取按钮 */
+        var btn = document.getElementById("btn");
+
+        /* 获取弹窗 */
+        var modal = document.getElementById("modal");
+
+        /* 获取所有具有class属性为close的元素中第一个，这个选择器返回的是一个类数组对象，
+        而不是单个元素，所以通过索引确定第几个元素 */
+        var close = document.querySelectorAll(".close")[0];
+
+        /* 设置按钮点击事件，点击打开按钮 */
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        /* 设置关闭点击事件，点击关闭 */
+        close.onclick = function() {
+            modal.style.display = "none";
+            alert("确定要关闭弹窗？");
+        }
+        
+</script>
+</html>
