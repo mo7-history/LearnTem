@@ -484,3 +484,238 @@ void Block::draw(int leftMargin, int topMargin) {
 }
 ~~~
 
+## 6、俄罗斯方块的数据存储
+
+### 逻辑实现
+
+~~~c++
+c语言中可以使用map来存放数据
+    c++中可以用vector动态存放 （长度可以变化的一个数组）
+    
+    在游戏类中
+#include <vector>
+using namespace std;
+
+私有成员变量添加二维数组 行 列 左边界 顶边界 方块大小 背景图片
+    //int map[20][10];
+	//vector<int> map; //一维数组
+	vector<vector<int>> map;  //二维数组
+
+然后在实现类中构造函数让实参与形参配对，并初始化二维数组
+
+
+
+~~~
+
+
+
+### 代码实现
+
+~~~c++
+#pragma once
+#include <vector>
+#include <graphics.h>
+using namespace std;
+
+class Tetris 
+{
+public:
+	// 构造函数  参数有 行列 左边界 顶部边界 方块大小
+	Tetris(int rows,int cols,int left,int top,int blockSize);
+	// 初始化
+	void init();
+	// 开始游戏
+	void play();
+
+private:
+	void keyEvent();
+	void updateWindow();// 更新游戏画面(即渲染)
+
+
+	int getDelay(); //返回距离上一次调用该函数，间隔了多少事件(ms)
+	void drop();
+	void clearLine();
+
+private:
+	int delay;
+	bool update; //是否更新
+
+	//int map[20][10];
+	//vector<int> map; //一维数组
+	//0：空白表示没有任何方块  5：表示是第五种俄罗斯方块
+	vector<vector<int>> map;  //二维数组
+	int rows;
+	int cols;
+	int leftMargin;
+	int topMargin;
+	int blockSize;
+	IMAGE imgBg; //背景图片
+};
+
+
+#include "Tetris.h"
+#include <stdlib.h>
+#include <time.h>
+
+Tetris::Tetris(int rows, int cols, int left, int top, int blockSize) {
+	this->cols = cols;
+	this->rows = rows;
+	this->leftMargin = left;
+	this->topMargin = top;
+	this->blockSize = blockSize;
+
+	for (int i = 0; i < rows; i++) {
+		vector<int> mapRow;
+		for (int j = 0; j < cols; j++) {
+			mapRow.push_back(0);
+		}
+		map.push_back(mapRow);
+	}
+}
+~~~
+
+
+
+## 7、实现游戏场景
+
+### 逻辑实现
+
+~~~c++
+从游戏初始化中开始实现
+    
+    创建游戏窗口  加载背景图片 
+    定义常量普通速度和快速速度 将之前设置的时延值设为常量
+    初始化游戏区中的数据 创建一个二维数组
+    ***注意 在这里创建的数组时为了初始化游戏的数据，构造函数中创建的二维数组是为了给游戏逻辑提高一个存储游戏状态的空间***
+    
+    在更新游戏画面函数中放入图片，并将之前写的获取延时方法完善，否则运行时会无法更新画面
+    
+    渲染测试方块
+    在updateWindow方法中实现测试，并且要导入Block.h文件
+    
+    
+
+
+
+
+
+~~~
+
+
+
+### 代码实现
+
+~~~c++
+#include "Tetris.h"
+#include <stdlib.h>
+#include <time.h>
+#include "Block.h"
+
+const int SPEED_NORMAL = 500; //ms
+const int SPEED_QUICK = 50; 
+
+
+Tetris::Tetris(int rows, int cols, int left, int top, int blockSize) {
+	this->cols = cols;
+	this->rows = rows;
+	this->leftMargin = left;
+	this->topMargin = top;
+	this->blockSize = blockSize;
+
+	for (int i = 0; i < rows; i++) {
+		vector<int> mapRow;
+		for (int j = 0; j < cols; j++) {
+			mapRow.push_back(0);
+		}
+		map.push_back(mapRow);
+	}
+
+}
+
+void Tetris::init() 
+{
+	delay = SPEED_NORMAL;
+	//配置随机种子
+	srand(time(NULL));
+
+	// 创建游戏窗口
+	initgraph(938, 896);
+
+
+	// 加载背景图片
+	loadimage(&imgBg, "res/bg2.png");
+
+	//初始化游戏区中的数据
+	char data[20][10];
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			map[i][j] = 0;
+		}
+	}
+
+
+
+}
+
+void Tetris::play() {
+	init();
+
+	//定时器
+	int timer = 0;
+	while (1) {
+		// 接受用户输入  因此要创建点击事件
+		keyEvent();
+
+		timer += getDelay();
+		if (timer > delay)
+		{
+			timer = 0;
+			update = true;
+			drop();
+		}
+		if (update)
+		{   
+		// 渲染游戏画面
+		updateWindow();
+		// 更新游戏数据
+		clearLine();
+		}
+	}
+}
+
+void Tetris::keyEvent() {}
+
+void Tetris::updateWindow() 
+{
+	putimage(0, 0, &imgBg); //绘制背景图片
+
+	//测试图片
+	Block block;
+	block.draw(leftMargin,topMargin);
+}
+
+
+//  第一次调用返回0
+//  返回距离上一次调用，间隔了多少ms
+int Tetris::getDelay() {
+
+	static unsigned long long lastTime = 0;
+	unsigned long long currentTime = GetTickCount();
+
+	if (lastTime == 0)
+	{
+		lastTime = currentTime;
+		return 0;
+	} 
+	else
+	{
+		int ret = currentTime - lastTime;
+		return ret;
+	}
+}
+void Tetris::drop() {}
+void Tetris::clearLine() {}
+~~~
+
+
+

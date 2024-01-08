@@ -1,4 +1,8 @@
 #pragma once
+#include <vector>
+#include <graphics.h>
+using namespace std;
+
 class Tetris 
 {
 public:
@@ -21,6 +25,17 @@ private:
 private:
 	int delay;
 	bool update; //是否更新
+
+	//int map[20][10];
+	//vector<int> map; //一维数组
+	//0：空白表示没有任何方块  5：表示是第五种俄罗斯方块
+	vector<vector<int>> map;  //二维数组
+	int rows;
+	int cols;
+	int leftMargin;
+	int topMargin;
+	int blockSize;
+	IMAGE imgBg; //背景图片
 
 
 };
