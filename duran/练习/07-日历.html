@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日历</title>
+</head>
+        
+<body>
+    <div></div>
+</body>
+<script>
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = d.getMonth();
+    var h = d.getDate();
+    var week = d.getDay();
+    //调用了Date对象的getDay()方法，该方法返回一个0（代表星期日）到6（代表星期六）的整数
+    var arr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    var div = document.getElementsByTagName("div")[0];
+    div.innerText = "今天是："+y+"年"+(m+1)+"月"+h+"日 "+arr[week];
+</script>
+</html>

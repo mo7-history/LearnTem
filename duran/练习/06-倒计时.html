@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="begin" />
+    <div></div>
+</body>
+<script>
+    var input = document.getElementsByTagName('input');
+    function fn(time){
+        var nowTime = +new Date();
+        var futureTime = new Date(time).getTime();
+        var time = (futureTime-nowTime)/1000//将时间戳计算出来的差值变成秒
+        var d = parseInt(time / 3600 / 24 );
+        var h = parseInt(time / 3600 % 24);
+        var m = parseInt(time / 60 % 60);
+        var s = parseInt(time % 60);
+        //为时间前面的个位添个0；
+        d = d < 10 ? "0" + d : d ;
+        h = h < 10 ? "0" + h : h ;
+        m = m < 10 ? "0" + m : m ;
+        s = s < 10 ? "0" + s : s ;
+        var div = document.getElementsByTagName('div')[0];
+        div.innerHTML = d + '天' + h + '时' + m + '分' + s + '秒';
+    }
+    var year = prompt('年份');
+    var months = prompt('月份');
+    var days = prompt('日');
+    var hours = prompt('时');
+    var minutes = prompt('分');
+    var seconds = prompt('秒');
+    var futureTime = year + '-' + months + '-' + days + ' ' + hours + ':' + minutes + ':' + seconds;
+    fn(futureTime);
+</script>
+</html>
