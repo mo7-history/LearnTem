@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串练习</title>
+</head>
+<body>
+</body>
+<script>
+        //1.查找字符串中某个字母出现的位置
+        var str = "abcdopecjghd";
+        for (let i = 0; i < str.length; i++) {
+            if (str.charAt(i) === "c") {
+                console.log(i);
+            }
+        }
+        //2.一个字符串中出现次数最多的字符，统计这个次数
+        var str1 = "smrudjkdddjfkddkjf";
+        var json = {};
+        for (let i = 0; i < str1.length; i++) {
+            var k = str1.charAt(i);// 获取字符串str2中索引为i的字符，并将其赋值给变量key
+            if(json[k]===undefined){// 判断json对象中是否存在名为key的属性
+                json[k] = 1;// 如果不存在，则将该属性的值设置为1，表示该字符出现了一次
+            } else{
+                json[k] += 1; // 如果存在，则将该属性的值加1，表示该字符又出现了一次
+            }
+        }
+        console.log(json);
+        var mKey = "";
+        var mValue = 0;
+        for (var key in json) {
+            if(json[key]>mValue){
+                mKey = key;
+                mValue = json[key];
+            }
+        }
+        console.log(mKey);
+        console.log(mValue);
+</script>
+</html>

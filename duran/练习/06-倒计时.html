@@ -6,34 +6,42 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="button" value="begin" />
+    <input type="date" id="timer" value="时间">
     <div></div>
 </body>
 <script>
-    var input = document.getElementsByTagName('input');
     function fn(time){
-        var nowTime = +new Date();
-        var futureTime = new Date(time).getTime();
-        var time = (futureTime-nowTime)/1000//将时间戳计算出来的差值变成秒
-        var d = parseInt(time / 3600 / 24 );
-        var h = parseInt(time / 3600 % 24);
-        var m = parseInt(time / 60 % 60);
-        var s = parseInt(time % 60);
+        const nowTime = +new Date();
+        const futureTime = new Date(time).getTime();
+        const timeDifference = (futureTime-nowTime)/1000//将时间戳计算出来的差值变成秒
+        let days = parseInt(timeDifference / 3600 / 24 );
+        let hours = parseInt(timeDifference / 3600 % 24);
+        let minutes = parseInt(timeDifference / 60 % 60);
+        let seconds = parseInt(timeDifference % 60);
         //为时间前面的个位添个0；
-        d = d < 10 ? "0" + d : d ;
-        h = h < 10 ? "0" + h : h ;
-        m = m < 10 ? "0" + m : m ;
-        s = s < 10 ? "0" + s : s ;
-        var div = document.getElementsByTagName('div')[0];
-        div.innerHTML = d + '天' + h + '时' + m + '分' + s + '秒';
+        days = days < 10 ? "0" + days : days ;
+        hours = hours < 10 ? "0" + hours : hours ;
+        minutes = minutes < 10 ? "0" + minutes : minutes ;
+        seconds = seconds < 10 ? "0" + seconds : seconds ;
+        return `${days}天${hours}时${minutes}分${seconds}秒`;
     }
-    var year = prompt('年份');
+    function updateTime() {
+        const dateInput = document.getElementById('timer');
+        const timeInput = dateInput.value;
+        const div = document.getElementsByTagName('div')[0];
+        div.innerHTML = fn(timeInput);
+    }
+    setInterval(updateTime, 1000);
+    //以下为弹窗获取时间信息
+    /* var year = prompt('年份');
     var months = prompt('月份');
     var days = prompt('日');
     var hours = prompt('时');
     var minutes = prompt('分');
     var seconds = prompt('秒');
-    var futureTime = year + '-' + months + '-' + days + ' ' + hours + ':' + minutes + ':' + seconds;
-    fn(futureTime);
-</script>
+    setInterval(function(){
+        var futureTime = year + '-' + months + '-' + days + ' ' + hours + ':' + minutes + ':' + seconds;
+        fn(futureTime);
+    },1000)*/
+    </script> 
 </html>
