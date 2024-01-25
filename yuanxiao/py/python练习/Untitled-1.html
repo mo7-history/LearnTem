@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>syl-vue</title>
+    <!-- 通过cdn方式引入 vue.js -->
+    <script src="https://labfile.oss.aliyuncs.com/courses/1262/vue.min.js"></script>
+  </head>
+  <body>
+    <!-- 数据双向绑定 -->
+    <div id="app">
+      <input type="text" v-model="msg" />
+      <p>{{msg}}</p>
+    </div>
+    <script>
+      var app = new Vue({
+        el: "#app", //el: 挂载点
+
+        data: {
+          //data:数据选项
+
+          msg: "hello",
+        },
+      });
+    </script>
+  </body>
+</html>
