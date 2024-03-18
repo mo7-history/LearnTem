@@ -12,7 +12,7 @@ Block::Block()
 		IMAGE imgTmp;
 		loadimage(&imgTmp, "res/tiles.png");
 
-	//设置切割对象
+	//设置切割对象  
 		SetWorkingImage(&imgTmp);
 		for (int i = 0; i < 7; i++) {
 			imgs[i] = new IMAGE;

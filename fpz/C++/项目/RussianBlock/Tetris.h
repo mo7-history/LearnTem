@@ -29,7 +29,7 @@ private:
 	//int map[20][10];
 	//vector<int> map; //一维数组
 	//0：空白表示没有任何方块  5：表示是第五种俄罗斯方块
-	vector<vector<int>> map;  //二维数组
+	vector<vector<int> > map;  //二维数组
 	int rows;
 	int cols;
 	int leftMargin;
