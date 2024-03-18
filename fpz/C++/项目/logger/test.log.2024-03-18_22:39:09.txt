@@ -1,0 +1,9 @@
+2024-03-18 22:34:43 INFO main.cpp:17 last page
+2024-03-18 22:34:43 WARN main.cpp:18 ignore
+2024-03-18 22:34:43 ERROR main.cpp:19 in the end
+2024-03-18 22:39:01 INFO main.cpp:17 last page
+2024-03-18 22:39:01 WARN main.cpp:18 ignore
+2024-03-18 22:39:01 ERROR main.cpp:19 in the end
+2024-03-18 22:39:09 INFO main.cpp:17 last page
+2024-03-18 22:39:09 WARN main.cpp:18 ignore
+2024-03-18 22:39:09 ERROR main.cpp:19 in the end

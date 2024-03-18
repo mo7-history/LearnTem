@@ -1,0 +1,5 @@
+2024-03-18 23:04:14 INFO /root/LearnTem/fpz/C++/项目/logger/main.cpp:17 last page
+2024-03-18 23:04:14 WARN /root/LearnTem/fpz/C++/项目/logger/main.cpp:18 ignore
+2024-03-18 23:04:14 ERROR /root/LearnTem/fpz/C++/项目/logger/main.cpp:19 in the end
+2024-03-18 23:04:17 INFO /root/LearnTem/fpz/C++/项目/logger/main.cpp:17 last page
+2024-03-18 23:04:17 WARN /root/LearnTem/fpz/C++/项目/logger/main.cpp:18 ignore

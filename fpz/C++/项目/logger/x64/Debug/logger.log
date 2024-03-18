@@ -1,0 +1,5 @@
+﻿  Logger.cpp
+H:\vsdemo\logger\Logger.cpp(105,22): warning C4244: “=”: 从“std::streamoff”转换到“int”，可能丢失数据
+  logger.vcxproj -> H:\vsdemo\logger\x64\Debug\logger.exe
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。

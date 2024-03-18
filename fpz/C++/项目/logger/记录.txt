@@ -1,0 +1,13 @@
+原生
+2024-03-18 16:39:43 INFO H:\vsdemo\logger\main.cpp:17 last page
+2024-03-18 16:39:43 WARN H:\vsdemo\logger\main.cpp:18 ignore
+2024-03-18 16:39:43 ERROR H:\vsdemo\logger\main.cpp:19 in the end
+
+
+运行两次
+2024-03-18 16:39:43 INFO H:\vsdemo\logger\main.cpp:17 last page
+2024-03-18 16:39:43 WARN H:\vsdemo\logger\main.cpp:18 ignore
+2024-03-18 16:39:43 ERROR H:\vsdemo\logger\main.cpp:19 in the end
+2024-03-18 16:40:22 INFO H:\vsdemo\logger\main.cpp:17 last page
+2024-03-18 16:40:22 WARN H:\vsdemo\logger\main.cpp:18 ignore
+2024-03-18 16:40:22 ERROR H:\vsdemo\logger\main.cpp:19 in the end

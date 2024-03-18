@@ -1,0 +1,7 @@
+2024-03-18 16:40:55 WARN H:\vsdemo\logger\main.cpp:18 ignore
+2024-03-18 16:40:55 ERROR H:\vsdemo\logger\main.cpp:19 in the end
+2024-03-18 16:45:38 INFO H:\vsdemo\logger\main.cpp:17 last page
+2024-03-18 16:45:38 WARN H:\vsdemo\logger\main.cpp:18 ignore
+2024-03-18 16:45:38 ERROR H:\vsdemo\logger\main.cpp:19 in the end
+2024-03-18 16:45:41 INFO H:\vsdemo\logger\main.cpp:17 last page
+2024-03-18 16:45:41 WARN H:\vsdemo\logger\main.cpp:18 ignore
